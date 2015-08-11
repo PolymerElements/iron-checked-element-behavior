@@ -37,6 +37,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </template>
   </test-fixture>
 
+  <test-fixture id="with-value">
+    <template>
+      <simple-checkbox value="batman"></simple-checkbox>
+    </template>
+  </test-fixture>
+
   <script>
 
     suite('basic', function() {
@@ -78,6 +84,24 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         assert.isFalse(c.invalid);
       });
 
+      test('has a default value of "on" when checked', function() {
+        var c = fixture('basic');
+        assert.isTrue(c.value === '');
+
+        c.checked = true;
+        assert.isTrue(c.value === 'on');
+      });
+
+      test('does not stomp over user defined value when checked', function() {
+        var c = fixture('with-value');
+        assert.isTrue(c.value === 'batman');
+
+        c.checked = true;
+        assert.isTrue(c.value === 'batman');
+      });
+    });
+
+    suite('a11y', function() {
       test('setting `required` sets `aria-required=true`', function() {
         var c = fixture('basic');
         c.required = true;
@@ -93,7 +117,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         c.invalid = false;
         assert.isFalse(c.hasAttribute('aria-invalid'));
       });
-
     });
 
   </script>

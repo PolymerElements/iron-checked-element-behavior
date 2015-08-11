@@ -26,6 +26,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   Polymer.IronCheckedElementBehaviorImpl = {
 
     properties: {
+      /**
+       * Fired when the checked state changes.
+       *
+       * @event iron-change
+       */
 
       /**
        * Gets or sets the state, `true` is checked and `false` is unchecked.
@@ -35,6 +40,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         value: false,
         reflectToAttribute: true,
         notify: true,
+        observer: '_checkedChanged'
       },
 
       /**
@@ -45,6 +51,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         type: Boolean,
         value: true,
         reflectToAttribute: true
+      },
+
+      /* Overriden from Polymer.IronFormElementBehavior */
+      value: {
+        type: String,
+        value: ''
       }
     },
 
@@ -70,6 +82,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         this.removeAttribute('aria-required');
       }
     },
+
+    /**
+     * Update the element's value when checked.
+     */
+    _checkedChanged: function() {
+      this.active = this.checked;
+      // Unless the user has specified a value, a checked element has the
+      // default value "on" when checked.
+      if (this.value === '')
+        this.value = this.checked ? 'on' : '';
+      this.fire('iron-change');
+    }
   };
 
   /** @polymerBehavior Polymer.IronCheckedElementBehavior */
