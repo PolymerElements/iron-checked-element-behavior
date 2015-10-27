@@ -9,9 +9,7 @@
     "iron",
     "behavior"
   ],
-  "main": [
-    "iron-checked-element-behavior.html"
-  ],
+  "main": "iron-checked-element-behavior.html",
   "private": true,
   "repository": {
     "type": "git",
