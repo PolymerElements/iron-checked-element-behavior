@@ -88,11 +88,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      */
     _checkedChanged: function() {
       this.active = this.checked;
+      this.fire('iron-change');
+    },
+
+    valueForFormSerialization: function() {
       // Unless the user has specified a value, a checked element has the
       // default value "on" when checked.
-      if (this.value === '')
-        this.value = this.checked ? 'on' : '';
-      this.fire('iron-change');
+      return this.checked ? (this.value || 'on') : '';
     }
   };
 
