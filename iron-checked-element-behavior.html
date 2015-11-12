@@ -65,6 +65,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       '_requiredChanged(required)'
     ],
 
+    created: function() {
+      this._hasIronCheckedElementBehavior = true;
+    },
+
     /**
      * Returns false if the element is required and not checked, and true otherwise.
      * @return {boolean} true if `required` is false, or if `required` and `checked` are both true.
@@ -84,22 +88,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     },
 
-    /**
-     * Update the element's value when checked.
-     */
     _checkedChanged: function() {
       this.active = this.checked;
       this.fire('iron-change');
     },
 
     _valueChanged: function() {
-      if (this.value === undefined) this.value = 'on';
-    },
-
-    valueForFormSerialization: function() {
-      // Unless the user has specified a value, a checked element has the
-      // default value "on" when checked.
-      return this.checked ? (this.value || 'on') : '';
+      if (this.value === undefined || this.value === null) {
+        this.value = 'on';
+      }
     }
   };
 
