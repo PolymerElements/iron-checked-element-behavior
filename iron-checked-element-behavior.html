@@ -78,6 +78,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * @return {boolean} true if `required` is false or if `checked` is true.
      */
     _getValidity: function(_value) {
+      if (this.hasValidator()) {
+        return this._validator.validate();
+      }
       return this.disabled || !this.required || this.checked;
     },
 

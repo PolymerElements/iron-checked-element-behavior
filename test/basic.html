@@ -21,6 +21,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <link href="../../test-fixture/test-fixture.html" rel="import">
   <link href="../../iron-meta/iron-meta.html" rel="import">
   <link href="simple-checkbox.html" rel="import">
+  <link href="validation-checkbox.html" rel="import">
 
 </head>
 <body>
@@ -40,6 +41,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <test-fixture id="with-value">
     <template>
       <simple-checkbox value="batman"></simple-checkbox>
+    </template>
+  </test-fixture>
+
+  <test-fixture id="with-custom-validator">
+    <template>
+      <validation-checkbox></validation-checkbox>
     </template>
   </test-fixture>
 
@@ -125,6 +132,26 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         c.value = undefined;
         assert.equal(c.value, 'on', 'returns "on"');
+      });
+
+      test('checkbox has custom validator in validation-checkbox', function() {
+        var ve = fixture('with-custom-validator');
+        assert.isTrue(ve.$.checkbox.hasValidator());
+      });
+
+      test('valid if not checked using the custom validator', function(){
+        var ve = fixture('with-custom-validator');
+        var c = ve.$.checkbox;
+        assert.isFalse(c.checked);
+        assert.isTrue(c.validate());
+      });
+
+      test('invalid if checked using the custom validator', function(){
+        var ve = fixture('with-custom-validator');
+        var c = ve.$.checkbox;
+        c.checked = true;
+        assert.isTrue(c.checked);
+        assert.isFalse(c.validate());
       });
     });
 
