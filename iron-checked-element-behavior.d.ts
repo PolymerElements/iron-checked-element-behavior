@@ -20,7 +20,7 @@ declare namespace Polymer {
    * element is also `required`. Element instances implementing this behavior
    * will also be registered for use in an `iron-form` element.
    */
-  interface IronCheckedElementBehavior {
+  interface IronCheckedElementBehavior extends Polymer.IronFormElementBehavior, Polymer.IronValidatableBehavior {
 
     /**
      * Overriden from Polymer.IronFormElementBehavior
