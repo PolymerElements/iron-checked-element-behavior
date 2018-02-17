@@ -45,22 +45,22 @@ declare namespace Polymer {
      * @returns true if `required` is false or if `checked` is true.
      */
     _getValidity(_value?: any): boolean;
-    created(): any;
+    created(): void;
 
     /**
      * Update the aria-required label when `required` is changed.
      */
-    _requiredChanged(): any;
+    _requiredChanged(): void;
 
     /**
      * Fire `iron-changed` when the checked state changes.
      */
-    _checkedChanged(): any;
+    _checkedChanged(): void;
 
     /**
      * Reset value to 'on' if it is set to `undefined`.
      */
-    _valueChanged(): any;
+    _valueChanged(): void;
   }
 
   const IronCheckedElementBehavior: object;
