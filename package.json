@@ -37,25 +37,7 @@
   },
   "main": "iron-checked-element-behavior.js",
   "contributors": [
-    "T",
-    "h",
-    "e",
-    " ",
-    "P",
-    "o",
-    "l",
-    "y",
-    "m",
-    "e",
-    "r",
-    " ",
-    "A",
-    "u",
-    "t",
-    "h",
-    "o",
-    "r",
-    "s"
+    "The Polymer Authors"
   ],
   "dependencies": {
     "@polymer/polymer": "^3.0.0",
