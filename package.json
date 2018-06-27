@@ -19,7 +19,6 @@
     "webmat": "^0.2.0",
     "@polymer/paper-styles": "^3.0.0-pre.20",
     "@polymer/paper-button": "^3.0.0-pre.20",
-    "@polymer/iron-component-page": "^3.0.0-pre.20",
     "wct-browser-legacy": "^1.0.1",
     "@webcomponents/webcomponentsjs": "^2.0.0"
   },
