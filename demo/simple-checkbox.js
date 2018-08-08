@@ -35,7 +35,7 @@ Polymer({
 
     <input type="checkbox" id="checkbox" on-tap="_onCheckTap">
     <span id="labelText">{{label}}</span>
-    <paper-button raised="" on-click="_onClick">validate</paper-button>
+    <paper-button raised on-click="_onClick">validate</paper-button>
 `,
 
   is: 'simple-checkbox',
