@@ -14,13 +14,13 @@ import {IronFormElementBehavior} from '@polymer/iron-form-element-behavior/iron-
 import {IronValidatableBehavior} from '@polymer/iron-validatable-behavior/iron-validatable-behavior.js';
 
 /**
- * Use `Polymer.IronCheckedElementBehavior` to implement a custom element
- * that has a `checked` property, which can be used for validation if the
- * element is also `required`. Element instances implementing this behavior
- * will also be registered for use in an `iron-form` element.
+ * Use `IronCheckedElementBehavior` to implement a custom element that has a
+ * `checked` property, which can be used for validation if the element is also
+ * `required`. Element instances implementing this behavior will also be
+ * registered for use in an `iron-form` element.
  *
  * @demo demo/index.html
- * @polymerBehavior Polymer.IronCheckedElementBehavior
+ * @polymerBehavior IronCheckedElementBehavior
  */
 export const IronCheckedElementBehaviorImpl = {
 
@@ -48,7 +48,7 @@ export const IronCheckedElementBehaviorImpl = {
      */
     toggles: {type: Boolean, value: true, reflectToAttribute: true},
 
-    /* Overriden from Polymer.IronFormElementBehavior */
+    /* Overriden from IronFormElementBehavior */
     value: {type: String, value: 'on', observer: '_valueChanged'}
   },
 
@@ -100,7 +100,7 @@ export const IronCheckedElementBehaviorImpl = {
   }
 };
 
-/** @polymerBehavior Polymer.IronCheckedElementBehavior */
+/** @polymerBehavior */
 export const IronCheckedElementBehavior = [
   IronFormElementBehavior,
   IronValidatableBehavior,
