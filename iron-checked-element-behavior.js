@@ -54,6 +54,7 @@ export const IronCheckedElementBehaviorImpl = {
 
   observers: ['_requiredChanged(required)'],
 
+  /** @override */
   created: function() {
     // Used by `iron-form` to handle the case that an element with this behavior
     // doesn't have a role of 'checkbox' or 'radio', but should still only be
